@@ -43,7 +43,7 @@ int main(void) {
 
 	if(validacionCargaTipoVivienda == 0 && validacionCargaForzada == 0){
 		do{
-			respuesta=utn_getNumero(&opcion, "1-Alta. \n2-Modificar. \n3-Baja. \n4-Listar viviendas. \n5-Listar censistas. \n6-Salir. \n",0,6);
+			respuesta=utn_getNumero(&opcion, "1-Alta. \n2-Modificar. \n3-Baja. \n4-Listar viviendas. \n5-Listar censistas. \n6-Listado de datos. \n7-Censistas con mas censos realizados. \n8-Salir. \n",0,8);
 			if(respuesta==0){
 				switch(opcion){
 					case 1:
@@ -56,7 +56,7 @@ int main(void) {
 							utn_getNumero(&id,"Que id quiere modificar: ", 20000, 99999);
 							validacionBusca=buscarViviendaporId(arrayViviendas, MAX, id);
 							if(validacionBusca==0){
-								utn_getNumero(&opcionModificar,"\n1-Calle. \n2-Cantidad de personas. \n3-Cantidad de habitaciones. \n4-Tipo de vivienda. \n5-Legajo de censista \n", 0, 5);
+								utn_getNumero(&opcionModificar,"\n1-Calle. \n2-Cantidad de personas. \n3-Cantidad de habitaciones. \n4-Tipo de vivienda. \n5-Legajo de censista. \n", 0, 5);
 								validacionModificar=modificarVivienda(arrayViviendas, MAX, id, opcionModificar);
 							}
 							if(validacionModificar==0){
@@ -81,25 +81,24 @@ int main(void) {
 					case 4:
 						validacionListar=ordenarViviendas(arrayViviendas, MAX);
 						break;
+
 					case 5:
 						mostrarCensistas(arrayCensista, CENSISTAS);
+						break;
+
+					case 6:
+						mostrarCensistasConViviendas(arrayCensista, CENSISTAS, arrayViviendas, MAX);
+						break;
+
+					case 7:
+						mostrarCensistasConMasCensos(arrayCensista, CENSISTAS, arrayViviendas, MAX);
 						break;
 				}
 			}
 
-		}while(opcion!=6);
+		}while(opcion!=8);
 
 	}
-//	for(id=0;id<MAX;id++){
-//		if(arrayViviendas[id].isEmpty==0){
-//		printf("id %d\n",arrayViviendas[id].idVivienda);
-//		printf("calle %s\n",arrayViviendas[id].calle);
-//		printf("cantidad personas %d\n",arrayViviendas[id].cantidadPersonas);
-//		printf("cantidad de habitaciones %d\n",arrayViviendas[id].cantidadHabitaciones);
-//		printf("tipo %s\n",arrayTipoVivienda[arrayViviendas[id].tipoVivienda].descripcion);
-//		printf("legajo %d\n",arrayViviendas[id].legajoCensista);
-//		}
-//	}
 
 	return EXIT_SUCCESS;
 }
