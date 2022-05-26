@@ -1,0 +1,20 @@
+/*
+ * censista.c
+ *
+ *  Created on: 20 may. 2022
+ *      Author: Usuario
+ */
+#include <stdio.h>
+#include <stdlib.h>
+
+int cargaForzadaCensistas(Censista* arrayCensistas, int limite){
+
+	int retorno=-1;
+	int i;
+
+	if(arrayCensistas!=NULL && limite>0){
+
+	}
+
+	return retorno;
+}

@@ -1,0 +1,29 @@
+/*
+ * utn.c
+ *
+ *  Created on: 20 may. 2022
+ *      Author: Usuario
+ */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include "header.h"
+
+int utn_getNumero(int* pResultado,char* mensaje, int minimo, int maximo)
+{
+	int retorno=-1;
+	int bufferInt;
+
+		if(pResultado != NULL && mensaje != NULL && minimo <= maximo)
+		{
+			printf("%s", mensaje);
+
+			if(getInt(&bufferInt) == 0 && bufferInt >= minimo && bufferInt <= maximo)
+			{
+				*pResultado = bufferInt;
+				retorno = 0;
+			}
+		}
+		return retorno;
+}

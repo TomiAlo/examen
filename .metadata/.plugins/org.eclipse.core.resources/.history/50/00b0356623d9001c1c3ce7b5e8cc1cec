@@ -1,0 +1,44 @@
+/*
+ * header.h
+ *
+ *  Created on: 20 may. 2022
+ *      Author: Usuario
+ */
+
+#ifndef HEADER_H_
+#define HEADER_H_
+#define ELEMENTS 25
+#include "vivienda.c"
+
+typedef struct
+{
+	int idVivienda;
+	char calle[ELEMENTS];
+	int cantidadPersonas;
+	int cantidadHabitaciones;
+	int tipoVivienda;//id de TipoVivienda
+	int legajoCensista;
+}Vivienda;
+
+typedef struct
+{
+	int id;
+	char descripcion[20];
+}TipoVivienda;
+
+typedef struct
+{
+	int legajoCensista;
+	char nombre[ELEMENTS];
+	int edad;
+	char telefono[10];
+}Censista;
+
+int cargaForzadaCensistas(Censista* arrayCensistas, int limite);
+
+int cargaForzadaTipoVivienda(TipoVivienda* arrayTipoVivienda, int limite);
+
+int altaVivienda(Vivienda* list, int limite, int maximo);
+
+
+#endif /* HEADER_H_ */
